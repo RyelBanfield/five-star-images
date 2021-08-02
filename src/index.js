@@ -3,15 +3,23 @@ import ReactDOM from 'react-dom';
 import {
   BrowserRouter as Router, Switch, Route,
 } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import Home from './components/Home';
+import Topics from './components/Topics';
+import Collections from './components/Collections';
+import Footer from './components/Footer';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/topics" component={Topics} />
+        <Route exact path="/collections" component={Collections} />
       </Switch>
+      <Footer />
     </Router>
   </React.StrictMode>,
   document.getElementById('root'),
