@@ -1,32 +1,36 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateSearchResults, updateRandomPhoto, updateLatestPhotos } from '../redux/slices/homeSlice';
 import { fetchPhotosBySearch, fetchRandomPhoto, fetchLatestPhotos } from '../API';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState(null);
-  const [searchResults, setSearchResults] = useState(null);
-  const [randomPhoto, setRandomPhoto] = useState(null);
-  const [latestPhotos, setLatestPhotos] = useState(null);
+  const searchResults = useSelector((state) => state.home.searchResults);
+  const randomPhoto = useSelector((state) => state.home.randomPhoto);
+  const latestPhotos = useSelector((state) => state.home.latestPhotos);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchRandomPhoto().then((photo) => {
-      setRandomPhoto(photo);
+      dispatch(updateRandomPhoto(photo));
     });
 
     fetchLatestPhotos().then((photos) => {
-      setLatestPhotos(photos);
+      dispatch(updateLatestPhotos(photos));
     });
   }, []);
 
   const handleSearch = (event) => {
     event.preventDefault();
     fetchPhotosBySearch(searchTerm).then((photos) => {
-      setSearchResults(photos.results);
+      dispatch(updateSearchResults(photos.results));
     });
   };
 
   const clearSearch = (event) => {
     event.preventDefault();
-    setSearchResults(null);
+    dispatch(updateSearchResults(null));
   };
 
   return (

@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react';
 import Select from 'react-select';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateSearchResults, updateCollections, updateSelectedCollections } from '../redux/slices/collectionsSlice';
 import { fetchCollectionBySearch, fetchListOfCollections, fetchPhotosByCollection } from '../API';
 
 const Collections = () => {
   const [searchTerm, setSearchTerm] = useState(null);
-  const [searchResults, setSearchResults] = useState(null);
-  const [collections, setCollections] = useState(null);
   const [options, setOptions] = useState(null);
-  const [selectedCollections, setSelectedCollections] = useState(null);
+  const collections = useSelector((state) => state.collections.collections);
+  const searchResults = useSelector((state) => state.collections.searchResults);
+  const selectedCollections = useSelector((state) => state.collections.selectedCollections);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchListOfCollections().then((collections) => {
-      setCollections(collections);
+      dispatch(updateCollections(collections));
     });
   }, []);
 
@@ -27,21 +30,21 @@ const Collections = () => {
   const handleSearch = (event) => {
     event.preventDefault();
     fetchCollectionBySearch(searchTerm).then((photos) => {
-      setSearchResults(photos.results);
+      dispatch(updateSearchResults(photos.results));
     });
   };
 
   const handleChange = (selection) => {
     fetchPhotosByCollection(selection).then((photos) => {
-      setSearchResults(null);
-      setSelectedCollections(photos);
+      dispatch(updateSearchResults(null));
+      dispatch(updateSelectedCollections(photos));
     });
   };
 
   const clearSelection = (event) => {
     event.preventDefault();
-    setSearchResults(null);
-    setSelectedCollections(null);
+    dispatch(updateSearchResults(null));
+    dispatch(updateSelectedCollections(null));
   };
 
   return (

@@ -1,15 +1,18 @@
 import Select from 'react-select';
 import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateTopics, updateSelectedTopic } from '../redux/slices/topicsSlice';
 import { fetchListOfTopics, fetchPhotosByTopic } from '../API';
 
 function Topics() {
-  const [topics, setTopics] = useState(null);
   const [options, setOptions] = useState(null);
-  const [selectedTopic, setSelectedTopic] = useState(null);
+  const topics = useSelector((state) => state.topics.topics);
+  const selectedTopic = useSelector((state) => state.topics.selectedTopic);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchListOfTopics().then((topics) => {
-      setTopics(topics);
+      dispatch(updateTopics(topics));
     });
   }, []);
 
@@ -24,13 +27,13 @@ function Topics() {
 
   const handleChange = (selection) => {
     fetchPhotosByTopic(selection).then((photos) => {
-      setSelectedTopic(photos);
+      dispatch(updateSelectedTopic(photos));
     });
   };
 
   const clearSelection = (event) => {
     event.preventDefault();
-    setSelectedTopic(null);
+    dispatch(updateSelectedTopic(null));
   };
 
   return (
