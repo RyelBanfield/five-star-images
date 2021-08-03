@@ -31,6 +31,13 @@ export const fetchListOfTopics = async () => {
   return topicsData;
 };
 
+export const fetchPhotosByTopic = async (topic) => {
+  const response = await fetch(`${baseUrl}/topics/${topic}/photos/?${clientID}&per_page=25`);
+  const photosData = await response.json();
+  console.log(photosData);
+  return photosData;
+};
+
 export const fetchCollectionBySearch = async (searchTerm) => {
   const response = await fetch(`${baseUrl}/search/collections/?${clientID}&query=${searchTerm}&per_page=25`);
   const collectionData = await response.json();
