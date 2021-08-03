@@ -15,9 +15,9 @@ ReactDOM.render(
     <Router>
       <Navbar />
       <Switch>
-        <Route exact path="/" component={Home} />
         <Route exact path="/topics" component={Topics} />
         <Route exact path="/collections" component={Collections} />
+        <Route path="/" component={Home} />
       </Switch>
       <Footer />
     </Router>
