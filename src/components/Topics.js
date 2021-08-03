@@ -23,10 +23,6 @@ function Topics() {
     }
   }, [topics]);
 
-  if (options) {
-    console.log(options);
-  }
-
   const handleChange = (selection) => {
     fetchPhotosByTopic(selection).then((photos) => {
       setSelectedTopic(photos);
@@ -40,9 +36,10 @@ function Topics() {
 
   return (
     <div className="topics">
-      <h2>Topics</h2>
-      <Select options={options} onChange={(selection) => handleChange(selection.value)} />
+      <h1>Topics</h1>
+      <Select options={options} placeholder="Select Topic" onChange={(selection) => handleChange(selection.value)} />
       <button type="button" className="clear-button" onClick={(event) => clearSelection(event)}>Clear Search</button>
+
       {!selectedTopic && (
       <ul>
         {topics && topics.map((topic) => (
