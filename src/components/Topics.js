@@ -17,11 +17,15 @@ function Topics() {
   useEffect(() => {
     if (topics) {
       setOptions(topics.map((topic) => ({
-        value: topic.slug,
+        value: topic.id,
         label: topic.title,
       })));
     }
   }, [topics]);
+
+  if (options) {
+    console.log(options);
+  }
 
   const handleChange = (selection) => {
     fetchPhotosByTopic(selection).then((photos) => {

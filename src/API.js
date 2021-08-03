@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-/* eslint-disable no-unused-vars */
 const baseUrl = 'https://api.unsplash.com';
 const clientID = 'client_id=a_Z7NO_N0k7l1GH6j1gkFW8fZ6Nq6uJayy_SCralv1I';
 
@@ -50,4 +49,11 @@ export const fetchListOfCollections = async () => {
   const collectionsData = await response.json();
   console.log(collectionsData);
   return collectionsData;
+};
+
+export const fetchPhotosByCollection = async (collection) => {
+  const response = await fetch(`${baseUrl}/collections/${collection}/photos/?${clientID}&per_page=25`);
+  const photosData = await response.json();
+  console.log(photosData);
+  return photosData;
 };
