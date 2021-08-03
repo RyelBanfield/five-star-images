@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   topics: null,
-  selectedTopic: null,
+  selectedTopics: null,
 };
 
 export const topicsSlice = createSlice({
@@ -13,13 +13,13 @@ export const topicsSlice = createSlice({
       ...state,
       topics: action.payload,
     }),
-    updateSelectedTopic: (state, action) => ({
+    updateSelectedTopics: (state, action) => ({
       ...state,
-      selectedTopic: action.payload,
+      selectedTopics: action.payload,
     }),
   },
 });
 
-export const { updateTopics, updateSelectedTopic } = topicsSlice.actions;
+export const { updateTopics, updateSelectedTopics } = topicsSlice.actions;
 
 export default topicsSlice.reducer;

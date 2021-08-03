@@ -1,7 +1,7 @@
 import Select from 'react-select';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateTopics, updateSelectedTopic } from '../redux/slices/topicsSlice';
+import { updateTopics, updateSelectedTopics } from '../redux/slices/topicsSlice';
 import { fetchListOfTopics, fetchPhotosByTopic } from '../API';
 
 function Topics() {
@@ -27,13 +27,13 @@ function Topics() {
 
   const handleChange = (selection) => {
     fetchPhotosByTopic(selection).then((photos) => {
-      dispatch(updateSelectedTopic(photos));
+      dispatch(updateSelectedTopics(photos));
     });
   };
 
   const clearSelection = (event) => {
     event.preventDefault();
-    dispatch(updateSelectedTopic(null));
+    dispatch(updateSelectedTopics(null));
   };
 
   return (

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateHomeSearchResults, updateRandomPhoto, updateLatestPhotos } from '../redux/slices/homeSlice';
