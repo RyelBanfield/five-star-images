@@ -7,6 +7,16 @@ const App = () => {
   const [randomPhoto, setRandomPhoto] = useState(null);
   const [latestPhotos, setLatestPhotos] = useState(null);
 
+  useEffect(() => {
+    fetchRandomPhoto().then((photo) => {
+      setRandomPhoto(photo);
+    });
+
+    fetchLatestPhotos().then((photos) => {
+      setLatestPhotos(photos);
+    });
+  }, []);
+
   const handleSearch = (event) => {
     event.preventDefault();
     fetchPhotosBySearch(searchTerm).then((photos) => {
@@ -18,16 +28,6 @@ const App = () => {
     event.preventDefault();
     setSearchResults(null);
   };
-
-  useEffect(() => {
-    fetchRandomPhoto().then((photo) => {
-      setRandomPhoto(photo);
-    });
-
-    fetchLatestPhotos().then((photos) => {
-      setLatestPhotos(photos);
-    });
-  }, []);
 
   return (
     <main className="home">

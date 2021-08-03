@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
-import { useEffect, useState } from 'react';
 import Select from 'react-select';
+import { useEffect, useState } from 'react';
 import { fetchListOfTopics, fetchPhotosByTopic } from '../API';
 
 function Topics() {
@@ -35,15 +34,16 @@ function Topics() {
   };
 
   return (
-    <div className="topics">
+    <main className="topics">
+
       <h1>Topics</h1>
       <Select options={options} placeholder="Select Topic" onChange={(selection) => handleChange(selection.value)} />
-      <button type="button" className="clear-button" onClick={(event) => clearSelection(event)}>Clear Search</button>
+      <button type="button" className="clear-button" onClick={(event) => clearSelection(event)}>Clear Selection</button>
 
       {!selectedTopic && (
-      <ul>
+      <ul className="topics">
         {topics && topics.map((topic) => (
-          <li key={topic.id}>
+          <li key={topic.id} className="topic">
             <p>{topic.title}</p>
             <img src={topic.cover_photo.urls.small} alt={topics.alt_description} />
           </li>
@@ -51,12 +51,17 @@ function Topics() {
       </ul>
       )}
 
-      {selectedTopic && selectedTopic.map((photo) => (
-        <div key={photo.id}>
-          <img src={photo.urls.small} alt={photo.alt_description} />
+      {selectedTopic && (
+        <div className="selected-topics">
+          {selectedTopic.map((photo) => (
+            <div className="selected-topic" key={photo.id}>
+              <img src={photo.urls.small} alt={photo.alt_description} />
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      )}
+
+    </main>
   );
 }
 
