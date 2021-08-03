@@ -10,7 +10,7 @@ export const homeSlice = createSlice({
   name: 'home',
   initialState,
   reducers: {
-    updateSearchResults: (state, action) => ({
+    updateHomeSearchResults: (state, action) => ({
       ...state,
       searchResults: action.payload,
     }),
@@ -25,6 +25,6 @@ export const homeSlice = createSlice({
   },
 });
 
-export const { updateSearchResults, updateRandomPhoto, updateLatestPhotos } = homeSlice.actions;
+export const { updateHomeSearchResults, updateRandomPhoto, updateLatestPhotos } = homeSlice.actions;
 
 export default homeSlice.reducer;

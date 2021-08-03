@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateSearchResults, updateRandomPhoto, updateLatestPhotos } from '../redux/slices/homeSlice';
+import { updateHomeSearchResults, updateRandomPhoto, updateLatestPhotos } from '../redux/slices/homeSlice';
 import { fetchPhotosBySearch, fetchRandomPhoto, fetchLatestPhotos } from '../API';
 
 const App = () => {
@@ -24,13 +24,13 @@ const App = () => {
   const handleSearch = (event) => {
     event.preventDefault();
     fetchPhotosBySearch(searchTerm).then((photos) => {
-      dispatch(updateSearchResults(photos.results));
+      dispatch(updateHomeSearchResults(photos.results));
     });
   };
 
   const clearSearch = (event) => {
     event.preventDefault();
-    dispatch(updateSearchResults(null));
+    dispatch(updateHomeSearchResults(null));
   };
 
   return (

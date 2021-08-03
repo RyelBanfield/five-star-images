@@ -11,7 +11,7 @@ export const CollectionSlice = createSlice({
   name: 'home',
   initialState,
   reducers: {
-    updateSearchResults: (state, action) => ({
+    updateCollectionSearchResults: (state, action) => ({
       ...state,
       searchResults: action.payload,
     }),
@@ -26,6 +26,6 @@ export const CollectionSlice = createSlice({
   },
 });
 
-export const { updateSearchResults, updateCollections, updateSelectedCollections } = CollectionSlice.actions;
+export const { updateCollectionSearchResults, updateCollections, updateSelectedCollections } = CollectionSlice.actions;
 
 export default CollectionSlice.reducer;

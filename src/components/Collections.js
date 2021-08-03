@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Select from 'react-select';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateSearchResults, updateCollections, updateSelectedCollections } from '../redux/slices/collectionsSlice';
+import { updateCollectionSearchResults, updateCollections, updateSelectedCollections } from '../redux/slices/collectionsSlice';
 import { fetchCollectionBySearch, fetchListOfCollections, fetchPhotosByCollection } from '../API';
 
 const Collections = () => {
@@ -30,20 +30,20 @@ const Collections = () => {
   const handleSearch = (event) => {
     event.preventDefault();
     fetchCollectionBySearch(searchTerm).then((photos) => {
-      dispatch(updateSearchResults(photos.results));
+      dispatch(updateCollectionSearchResults(photos.results));
     });
   };
 
   const handleChange = (selection) => {
     fetchPhotosByCollection(selection).then((photos) => {
-      dispatch(updateSearchResults(null));
+      dispatch(updateCollectionSearchResults(null));
       dispatch(updateSelectedCollections(photos));
     });
   };
 
   const clearSelection = (event) => {
     event.preventDefault();
-    dispatch(updateSearchResults(null));
+    dispatch(updateCollectionSearchResults(null));
     dispatch(updateSelectedCollections(null));
   };
 
