@@ -8,7 +8,6 @@ import store from './redux/store';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Topics from './components/Topics';
-import Collections from './components/Collections';
 import Footer from './components/Footer';
 import reportWebVitals from './reportWebVitals';
 
@@ -19,7 +18,6 @@ ReactDOM.render(
         <Navbar />
         <Switch>
           <Route exact path="/topics" component={Topics} />
-          <Route exact path="/collections" component={Collections} />
           <Route path="/" component={Home} />
         </Switch>
         <Footer />
