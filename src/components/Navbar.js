@@ -10,7 +10,7 @@ const Navbar = () => (
 
     <ul className="nav-links">
       {pages.map((page) => (
-        <li key={page.name}>
+        <li className="nav-item" key={page.name}>
           <Link className="nav-link" to={page.path}>
             {page.name}
           </Link>

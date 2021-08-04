@@ -32,8 +32,10 @@ const App = () => {
 
       <div className="search">
         <input type="text" value={searchTerm} placeholder="Search new photos" onChange={(event) => setSearchTerm(event.target.value)} />
-        <button type="button" className="search-button" onClick={() => handleSearch()}>Search</button>
-        <button type="button" className="clear-button" onClick={() => clearSearch()}>Clear Search</button>
+        <div className="buttons">
+          <button type="button" className="search-button btn" onClick={() => handleSearch()}>Search</button>
+          <button type="button" className="clear-button btn" onClick={() => clearSearch()}>Clear Search</button>
+        </div>
       </div>
 
       {searchResults && (
