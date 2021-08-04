@@ -20,15 +20,14 @@ const App = () => {
     });
   }, []);
 
-  const handleSearch = (event) => {
-    event.preventDefault();
+  const handleSearch = () => {
     fetchPhotosBySearch(searchTerm).then((photos) => {
       dispatch(updateHomeSearchResults(photos.results));
     });
   };
 
-  const clearSearch = (event) => {
-    event.preventDefault();
+  const clearSearch = () => {
+    setSearchTerm('');
     dispatch(updateHomeSearchResults(null));
   };
 
@@ -36,13 +35,14 @@ const App = () => {
     <main className="home">
 
       <div className="search">
-        <input type="text" placeholder="Search" onChange={(event) => setSearchTerm(event.target.value)} />
-        <button type="button" className="search-button" onClick={(event) => handleSearch(event)}>Search</button>
-        <button type="button" className="clear-button" onClick={(event) => clearSearch(event)}>Clear Search</button>
+        <input type="text" value={searchTerm} placeholder="Search new photos" onChange={(event) => setSearchTerm(event.target.value)} />
+        <button type="button" className="search-button" onClick={() => handleSearch()}>Search</button>
+        <button type="button" className="clear-button" onClick={() => clearSearch()}>Clear Search</button>
       </div>
 
       {searchResults && (
       <div className="search-results">
+        <h1>Search Results</h1>
         {searchResults.map((photo) => (
           <div className="search-result" key={photo.id}>
             <img src={photo.urls.small} alt={photo.alt_description} />

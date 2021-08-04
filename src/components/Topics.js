@@ -6,8 +6,9 @@ import { fetchListOfTopics, fetchPhotosByTopic } from '../API';
 
 function Topics() {
   const [options, setOptions] = useState(null);
+  const [selectValue, setSelectValue] = useState();
   const topics = useSelector((state) => state.topics.topics);
-  const selectedTopic = useSelector((state) => state.topics.selectedTopic);
+  const selectedTopic = useSelector((state) => state.topics.selectedTopics);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,13 +27,14 @@ function Topics() {
   }, [topics]);
 
   const handleChange = (selection) => {
+    setSelectValue(selection.value);
     fetchPhotosByTopic(selection).then((photos) => {
       dispatch(updateSelectedTopics(photos));
     });
   };
 
-  const clearSelection = (event) => {
-    event.preventDefault();
+  const clearSelection = () => {
+    setSelectValue(null);
     dispatch(updateSelectedTopics(null));
   };
 
@@ -40,8 +42,8 @@ function Topics() {
     <main className="topics">
 
       <h1>Topics</h1>
-      <Select options={options} placeholder="Select Topic" onChange={(selection) => handleChange(selection.value)} />
-      <button type="button" className="clear-button" onClick={(event) => clearSelection(event)}>Clear Selection</button>
+      <Select options={options} value={selectValue} placeholder="Select Topic" onChange={(selection) => handleChange(selection.value)} />
+      <button type="button" className="clear-button" onClick={() => clearSelection()}>Clear Selection</button>
 
       {!selectedTopic && (
       <ul className="topics">

@@ -6,6 +6,7 @@ import { fetchCollectionBySearch, fetchListOfCollections, fetchPhotosByCollectio
 
 const Collections = () => {
   const [searchTerm, setSearchTerm] = useState(null);
+  const [selectValue, setSelectValue] = useState();
   const [options, setOptions] = useState(null);
   const collections = useSelector((state) => state.collections.collections);
   const searchResults = useSelector((state) => state.collections.searchResults);
@@ -27,22 +28,23 @@ const Collections = () => {
     }
   }, [collections]);
 
-  const handleSearch = (event) => {
-    event.preventDefault();
+  const handleSearch = () => {
     fetchCollectionBySearch(searchTerm).then((photos) => {
       dispatch(updateCollectionSearchResults(photos.results));
     });
   };
 
   const handleChange = (selection) => {
+    setSelectValue(selection.value);
     fetchPhotosByCollection(selection).then((photos) => {
       dispatch(updateCollectionSearchResults(null));
       dispatch(updateSelectedCollections(photos));
     });
   };
 
-  const clearSelection = (event) => {
-    event.preventDefault();
+  const clearSelection = () => {
+    setSearchTerm('');
+    setSelectValue(null);
     dispatch(updateCollectionSearchResults(null));
     dispatch(updateSelectedCollections(null));
   };
@@ -50,10 +52,10 @@ const Collections = () => {
   return (
     <main className="collections">
       <h1>Collections</h1>
-      <input type="text" placeholder="Search" onChange={(event) => setSearchTerm(event.target.value)} />
-      <Select options={options} placeholder="Select Collection" onChange={(selection) => handleChange(selection.value)} />
-      <button type="button" className="search-button" onClick={(event) => handleSearch(event)}>Search</button>
-      <button type="button" className="clear-button" onClick={(event) => clearSelection(event)}>Clear Selection</button>
+      <input type="text" value={searchTerm} placeholder="Search" onChange={(event) => setSearchTerm(event.target.value)} />
+      <Select options={options} value={selectValue} placeholder="Select Collection" onChange={(selection) => handleChange(selection.value)} />
+      <button type="button" className="search-button" onClick={() => handleSearch()}>Search</button>
+      <button type="button" className="clear-button" onClick={() => clearSelection()}>Clear Selection</button>
 
       {!searchResults && !selectedCollections && (
         <ul className="collections">
