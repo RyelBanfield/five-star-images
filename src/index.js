@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  BrowserRouter as Router, Switch, Route,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import Photo from './components/Photo';
 import Topics from './components/Topics';
 import Footer from './components/Footer';
 import './css/index.css';
-import Photo from './components/Photo';
 
 ReactDOM.render(
   <React.StrictMode>

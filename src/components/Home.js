@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchPhotosBySearch, fetchRandomPhotos } from '../API';
 import { updateHomeSearchResults, updateRandomPhotos } from '../redux/slices/homeSlice';
-// import Photo from './Photo';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -19,7 +18,7 @@ const App = () => {
 
   const handleSearch = () => {
     fetchPhotosBySearch(searchTerm).then((photos) => {
-      dispatch(updateHomeSearchResults(photos.results));
+      dispatch(updateHomeSearchResults(photos));
     });
   };
 
@@ -41,9 +40,9 @@ const App = () => {
       <div className="search-results">
         <h1>Search Results</h1>
         {searchResults.map((photo) => (
-          <div className="search-result" key={photo.id}>
+          <Link to={`/photo/${photo.id}`} key={photo.id}>
             <img src={photo.urls.small} alt={photo.alt_description} />
-          </div>
+          </Link>
         ))}
       </div>
       )}

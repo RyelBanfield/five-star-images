@@ -8,8 +8,8 @@ export const fetchPhotosBySearch = async (searchTerm) => {
   const response = await fetch(`${baseUrl}/search/photos/?${clientID}&query=${searchTerm}&per_page=30`);
   const searchPhotosData = await response.json();
   console.log('fetchPhotosBySearch');
-  console.log(searchPhotosData);
-  return searchPhotosData;
+  console.log(searchPhotosData.results);
+  return searchPhotosData.results;
 };
 
 export const fetchRandomPhotos = async () => {
