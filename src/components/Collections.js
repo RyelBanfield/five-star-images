@@ -5,7 +5,7 @@ import { updateCollectionSearchResults, updateCollections, updateSelectedCollect
 import { fetchCollectionBySearch, fetchListOfCollections, fetchPhotosByCollection } from '../API';
 
 const Collections = () => {
-  const [searchTerm, setSearchTerm] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
   const [selectValue, setSelectValue] = useState();
   const [options, setOptions] = useState(null);
   const collections = useSelector((state) => state.collections.collections);
@@ -53,8 +53,8 @@ const Collections = () => {
     <main className="collections">
       <h1>Collections</h1>
       <input type="text" value={searchTerm} placeholder="Search" onChange={(event) => setSearchTerm(event.target.value)} />
-      <Select options={options} value={selectValue} placeholder="Select Collection" onChange={(selection) => handleChange(selection.value)} />
       <button type="button" className="search-button" onClick={() => handleSearch()}>Search</button>
+      <Select options={options} value={selectValue} placeholder="Select Collection" onChange={(selection) => handleChange(selection.value)} />
       <button type="button" className="clear-button" onClick={() => clearSelection()}>Clear Selection</button>
 
       {!searchResults && !selectedCollections && (

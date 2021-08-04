@@ -4,7 +4,7 @@ import { updateHomeSearchResults, updateRandomPhoto, updateLatestPhotos } from '
 import { fetchPhotosBySearch, fetchRandomPhoto, fetchLatestPhotos } from '../API';
 
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
   const searchResults = useSelector((state) => state.home.searchResults);
   const randomPhoto = useSelector((state) => state.home.randomPhoto);
   const latestPhotos = useSelector((state) => state.home.latestPhotos);
