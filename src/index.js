@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Photo from './components/Photo';
 import Topics from './components/Topics';
+import TPhoto from './components/TPhoto';
 import Footer from './components/Footer';
 import './css/index.css';
 
@@ -16,8 +17,9 @@ ReactDOM.render(
       <Router>
         <Navbar />
         <Switch>
-          <Route path="/photo/:id" component={Photo} />
+          <Route exact path="/photo/:id" component={Photo} />
           <Route exact path="/topics" component={Topics} />
+          <Route exact path="/t-photo/:id" component={TPhoto} />
           <Route path="/" component={Home} />
         </Switch>
         <Footer />
