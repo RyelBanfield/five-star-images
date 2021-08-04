@@ -10,6 +10,7 @@ import Home from './components/Home';
 import Topics from './components/Topics';
 import Footer from './components/Footer';
 import './css/index.css';
+import Photo from './components/Photo';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
       <Router>
         <Navbar />
         <Switch>
+          <Route path="/photo/:id" component={Photo} />
           <Route exact path="/topics" component={Topics} />
           <Route path="/" component={Home} />
         </Switch>

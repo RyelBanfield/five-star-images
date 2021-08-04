@@ -1,22 +1,19 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchPhotosBySearch, fetchRandomPhoto, fetchLatestPhotos } from '../API';
-import { updateHomeSearchResults, updateRandomPhoto, updateLatestPhotos } from '../redux/slices/homeSlice';
+import { Link } from 'react-router-dom';
+import { fetchPhotosBySearch, fetchRandomPhotos } from '../API';
+import { updateHomeSearchResults, updateRandomPhotos } from '../redux/slices/homeSlice';
+// import Photo from './Photo';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const searchResults = useSelector((state) => state.home.searchResults);
-  const randomPhoto = useSelector((state) => state.home.randomPhoto);
-  const latestPhotos = useSelector((state) => state.home.latestPhotos);
+  const randomPhotos = useSelector((state) => state.home.randomPhotos);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchRandomPhoto().then((photo) => {
-      dispatch(updateRandomPhoto(photo));
-    });
-
-    fetchLatestPhotos().then((photos) => {
-      dispatch(updateLatestPhotos(photos));
+    fetchRandomPhotos().then((photos) => {
+      dispatch(updateRandomPhotos(photos));
     });
   }, []);
 
@@ -52,21 +49,13 @@ const App = () => {
       )}
 
       {!searchResults && (
-        <>
-          <div className="random-photo">
-            <h2>Random Photo</h2>
-            {randomPhoto && <img src={randomPhoto.urls.small} alt={randomPhoto.alt_description} />}
-          </div>
-
-          <div className="latest-photos">
-            <h2>Latest Photos</h2>
-            {latestPhotos && latestPhotos.map((photo) => (
-              <div className="latest-photo" key={photo.id}>
-                <img src={photo.urls.small} alt={photo.alt_description} />
-              </div>
-            ))}
-          </div>
-        </>
+      <div className="random-photos">
+        {randomPhotos && randomPhotos.map((photo) => (
+          <Link to={`/photo/${photo.id}`} key={photo.id}>
+            <img src={photo.urls.small} alt={photo.alt_description} />
+          </Link>
+        ))}
+      </div>
       )}
 
     </main>

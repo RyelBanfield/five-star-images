@@ -2,8 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   searchResults: null,
-  randomPhoto: null,
-  latestPhotos: null,
+  randomPhotos: null,
 };
 
 export const homeSlice = createSlice({
@@ -14,17 +13,13 @@ export const homeSlice = createSlice({
       ...state,
       searchResults: action.payload,
     }),
-    updateRandomPhoto: (state, action) => ({
+    updateRandomPhotos: (state, action) => ({
       ...state,
-      randomPhoto: action.payload,
-    }),
-    updateLatestPhotos: (state, action) => ({
-      ...state,
-      latestPhotos: action.payload,
+      randomPhotos: action.payload,
     }),
   },
 });
 
-export const { updateHomeSearchResults, updateRandomPhoto, updateLatestPhotos } = homeSlice.actions;
+export const { updateHomeSearchResults, updateRandomPhotos } = homeSlice.actions;
 
 export default homeSlice.reducer;
