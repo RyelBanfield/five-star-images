@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
 /* eslint-disable max-len */
 const baseUrl = 'https://api.unsplash.com';
-const clientID = 'client_id=a_Z7NO_N0k7l1GH6j1gkFW8fZ6Nq6uJayy_SCralv1I';
+const accessKey = process.env.REACT_APP_ACCESS_KEY;
+const clientID = `client_id=${accessKey}`;
 
 export const fetchPhotosBySearch = async (searchTerm) => {
   const response = await fetch(`${baseUrl}/search/photos/?${clientID}&query=${searchTerm}&per_page=25`);
