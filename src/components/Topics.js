@@ -1,11 +1,11 @@
 import Select from 'react-select';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateTopics, updateSelectedTopics } from '../redux/slices/topicsSlice';
 import { fetchListOfTopics, fetchPhotosByTopic } from '../API';
+import { updateTopics, updateSelectedTopics } from '../redux/slices/topicsSlice';
 
 function Topics() {
-  const [options, setOptions] = useState(null);
+  const [options, setOptions] = useState();
   const [selectValue, setSelectValue] = useState();
   const topics = useSelector((state) => state.topics.topics);
   const selectedTopic = useSelector((state) => state.topics.selectedTopics);

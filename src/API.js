@@ -28,7 +28,7 @@ export const fetchLatestPhotos = async () => {
 };
 
 export const fetchListOfTopics = async () => {
-  const response = await fetch(`${baseUrl}/topics/?${clientID}&per_page=25`);
+  const response = await fetch(`${baseUrl}/topics/?${clientID}&per_page=30`);
   const topicsData = await response.json();
   console.log('fetchListOfTopics');
   console.log(topicsData);

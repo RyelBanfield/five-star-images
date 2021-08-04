@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const pages = [
   { name: 'Home', path: '/' },
   { name: 'Topics', path: '/topics' },
-  { name: 'Collections', path: '/collections' },
+  // { name: 'Collections', path: '/collections' },
 ];
 
 const Navbar = () => (

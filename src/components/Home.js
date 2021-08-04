@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateHomeSearchResults, updateRandomPhoto, updateLatestPhotos } from '../redux/slices/homeSlice';
 import { fetchPhotosBySearch, fetchRandomPhoto, fetchLatestPhotos } from '../API';
+import { updateHomeSearchResults, updateRandomPhoto, updateLatestPhotos } from '../redux/slices/homeSlice';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');

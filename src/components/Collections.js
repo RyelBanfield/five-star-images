@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
 import Select from 'react-select';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateCollectionSearchResults, updateCollections, updateSelectedCollections } from '../redux/slices/collectionsSlice';
 import { fetchCollectionBySearch, fetchListOfCollections, fetchPhotosByCollection } from '../API';
+import { updateCollectionSearchResults, updateCollections, updateSelectedCollections } from '../redux/slices/collectionsSlice';
 
 const Collections = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectValue, setSelectValue] = useState();
-  const [options, setOptions] = useState(null);
+  const [options, setOptions] = useState();
   const collections = useSelector((state) => state.collections.collections);
   const searchResults = useSelector((state) => state.collections.searchResults);
   const selectedCollections = useSelector((state) => state.collections.selectedCollections);
