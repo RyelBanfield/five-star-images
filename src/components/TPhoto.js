@@ -2,16 +2,21 @@
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-const Photo = () => {
+const TPhoto = () => {
   const { id } = useParams();
-  const selectedTopic = useSelector((state) => state.topics.selectedTopic);
-  const photo = selectedTopic.find((topic) => topic.id === id);
+  const selectedTopicPhotos = useSelector((state) => state.topics.selectedTopicPhotos);
+  const photo = selectedTopicPhotos.find((photo) => photo.id === id);
 
   return (
-    <div className="photo">
-      <img src={photo.urls.small} alt={photo.alt_description} />
-    </div>
+    <>
+      {photo && (
+      <div className="photo">
+        <h1>{photo.id}</h1>
+        <img src={photo.urls.small} alt={photo.alt_description} />
+      </div>
+      )}
+    </>
   );
 };
 
-export default Photo;
+export default TPhoto;
