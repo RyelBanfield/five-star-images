@@ -38,11 +38,12 @@ const App = () => {
 
       {searchResults && (
       <div className="search-results">
-        <h1>Search Results</h1>
         {searchResults.map((photo) => (
-          <Link to={`/photo/${photo.id}`} key={photo.id}>
-            <img src={photo.urls.small} alt={photo.alt_description} />
-          </Link>
+          <div className="search-result" key={photo.id}>
+            <Link to={`/photo/${photo.id}`}>
+              <img src={photo.urls.small} alt={photo.alt_description} />
+            </Link>
+          </div>
         ))}
       </div>
       )}
@@ -50,9 +51,11 @@ const App = () => {
       {!searchResults && (
       <div className="random-photos">
         {randomPhotos && randomPhotos.map((photo) => (
-          <Link to={`/photo/${photo.id}`} key={photo.id}>
-            <img src={photo.urls.small} alt={photo.alt_description} />
-          </Link>
+          <div className="random-photo" key={photo.id}>
+            <Link to={`/photo/${photo.id}`}>
+              <img src={photo.urls.small} alt={photo.alt_description} />
+            </Link>
+          </div>
         ))}
       </div>
       )}

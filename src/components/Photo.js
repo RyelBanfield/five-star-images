@@ -9,14 +9,14 @@ const Photo = () => {
   const photo = randomPhotos.find((photo) => photo.id === id) || searchResults.find((photo) => photo.id === id);
 
   return (
-    <>
+    <main className="h-photo">
       {photo && (
       <div className="photo">
         <h1>{photo.id}</h1>
         <img src={photo.urls.small} alt={photo.alt_description} />
       </div>
       )}
-    </>
+    </main>
   );
 };
 

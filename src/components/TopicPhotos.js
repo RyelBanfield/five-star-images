@@ -8,17 +8,19 @@ const Photo = () => {
   const topic = Topics.find((topic) => topic.slug === id);
 
   return (
-    <>
+    <main className="topic">
       <h1>{topic.title}</h1>
       <p>{topic.description}</p>
-      <div className="photo">
+      <div className="topic-photos">
         {selectedTopicPhotos && selectedTopicPhotos.map((photo) => (
-          <Link to={`/topic/${id}/photo/${photo.id}`} key={photo.id}>
-            <img src={photo.urls.small} alt={photo.alt_description} />
-          </Link>
+          <div className="topic-photo" key={photo.id}>
+            <Link to={`/topic/${id}/photo/${photo.id}`}>
+              <img src={photo.urls.small} alt={photo.alt_description} />
+            </Link>
+          </div>
         ))}
       </div>
-    </>
+    </main>
   );
 };
 
