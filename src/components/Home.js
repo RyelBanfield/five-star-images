@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { FaStar } from 'react-icons/fa';
 import { fetchPhotosBySearch, fetchRandomPhotos } from '../API';
 import { updateHomeSearchResults, updateRandomPhotos } from '../redux/slices/homeSlice';
 
@@ -29,9 +30,17 @@ const App = () => {
 
   return (
     <main className="home">
-
+      <h1 className="header">
+        Five
+        {' '}
+        <FaStar />
+        {' '}
+        Images
+      </h1>
       <div className="search">
-        <input type="text" value={searchTerm} placeholder="Search new photos" onChange={(event) => setSearchTerm(event.target.value)} />
+        <div className="search-bar">
+          <input type="text" value={searchTerm} placeholder="Search new photos" onChange={(event) => setSearchTerm(event.target.value)} />
+        </div>
         <div className="buttons">
           <button type="button" className="search-button btn" onClick={() => handleSearch()}>Search</button>
           <button type="button" className="clear-button btn" onClick={() => clearSearch()}>Clear Search</button>

@@ -1,0 +1,56 @@
+$dark-gray: #1a1a1d;
+$gray: #4e4e50;
+$dark-red: #6f2232;
+$pink: #950740;
+$bright-red: #c3073f;
+$white: #dcdde1;
+
+.home {
+  .header {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .search {
+    display: flex;
+    flex-direction: column;
+    margin: 2.5rem 0;
+
+    .search-bar {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+
+      input {
+        background-color: $white;
+        border-radius: 0.25rem;
+        padding: 0.5rem;
+        width: 80%;
+      }
+    }
+
+    .buttons {
+      align-items: center;
+      display: flex;
+      height: 5rem;
+      justify-content: space-evenly;
+
+      .btn {
+        background-color: $white;
+        border-radius: 0.25rem;
+        color: $gray;
+        height: 1.75rem;
+        width: 8rem;
+      }
+    }
+  }
+
+  .random-photos,
+  .search-results {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1rem;
+  }
+}
