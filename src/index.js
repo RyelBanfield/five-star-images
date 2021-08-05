@@ -18,11 +18,11 @@ ReactDOM.render(
       <Router>
         <Navbar />
         <Switch>
+          <Route exact path="/five-star-images" component={Home} />
           <Route exact path="/photo/:id" component={Photo} />
           <Route exact path="/topics" component={Topics} />
           <Route exact path="/topic/:id/photos" component={TopicPhotos} />
           <Route exact path="/topic/:id/photo/:id" component={TPhoto} />
-          <Route path="/" component={Home} />
         </Switch>
         <Footer />
       </Router>

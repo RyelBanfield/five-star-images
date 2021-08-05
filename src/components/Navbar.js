@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaTimes, FaBars } from 'react-icons/fa';
 
 const pages = [
-  { name: 'Home', path: '/' },
+  { name: 'Home', path: '/five-star-images' },
   { name: 'Topics', path: '/topics' },
 ];
 
