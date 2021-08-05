@@ -14,6 +14,19 @@ This project will be submitted as my Microverse React Capstone project. It uses 
 [Click here to view the live demo](https://ryelbanfield.github.io/five-star-images/)
 ## Run Locally
 
+Get API Key from Unsplash
+```bash
+  Go to https://unsplash.com/developers
+  Click on "Create an App"
+  Enter the App Name
+  Enter the App Description
+  Click on "Register"
+  Click on "Download API Key"
+  Copy the API Key
+  Create .env file in the root directory with the following contents:
+  REACT_APP_ACCESS_KEY = <YOUR API KEY>
+```
+
 Clone the project
 
 ```bash
