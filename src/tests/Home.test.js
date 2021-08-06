@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import store from '../redux/store';
 import Home from '../components/Home';
@@ -51,4 +52,15 @@ it('renders clear search button', () => {
   );
   const button = screen.getByRole('button', { name: 'Clear Search' });
   expect(button).toBeInTheDocument();
+});
+
+it('renders correctly', () => {
+  const home = renderer
+    .create(
+      <Provider store={store}>
+        <Home />
+      </Provider>,
+    )
+    .toJSON();
+  expect(home).toMatchSnapshot();
 });

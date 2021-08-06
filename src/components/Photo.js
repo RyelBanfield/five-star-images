@@ -1,12 +1,11 @@
-/* eslint-disable max-len */
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Photo = () => {
   const { id } = useParams();
-  const randomPhotos = useSelector((state) => state.home.randomPhotos);
-  const searchResults = useSelector((state) => state.home.searchResults);
-  const photo = randomPhotos.find((photo) => photo.id === id) || searchResults.find((photo) => photo.id === id);
+  const photos = useSelector((state) => state.home.randomPhotos);
+  const results = useSelector((state) => state.home.searchResults);
+  const photo = photos.find((photo) => photo.id === id) || results.find((photo) => photo.id === id);
 
   return (
     <main className="h-photo">

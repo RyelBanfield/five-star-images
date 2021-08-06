@@ -10,7 +10,6 @@ const Photo = () => {
   return (
     <main className="topic">
       <h1>{topic.title}</h1>
-      {/* <p>{topic.description}</p> */}
       <div className="topic-photos">
         {selectedTopicPhotos && selectedTopicPhotos.map((photo) => (
           <div className="topic-photo" key={photo.id}>
