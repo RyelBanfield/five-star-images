@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchListOfTopics, fetchPhotosByTopic } from '../API';
-import { updateTopics, updateSelectedTopicPhotos } from '../redux/slices/topicsSlice';
+import { updateTopics, updateSelectedTopicPhotos } from '../redux/actions';
 
 function Topics() {
   const topics = useSelector((state) => state.topics.topics);

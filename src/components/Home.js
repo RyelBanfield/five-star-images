@@ -3,12 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 import { fetchPhotosBySearch, fetchRandomPhotos } from '../API';
-import { updateHomeSearchResults, updateRandomPhotos } from '../redux/slices/homeSlice';
+import { updateHomeSearchResults, updateRandomPhotos } from '../redux/actions';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const searchResults = useSelector((state) => state.home.searchResults);
   const randomPhotos = useSelector((state) => state.home.randomPhotos);
+
   const dispatch = useDispatch();
 
   useEffect(() => {

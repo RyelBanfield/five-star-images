@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './redux/store';
+import { createStore } from 'redux';
+import rootReducer from './redux/reducers';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Photo from './components/Photo';
@@ -11,6 +12,10 @@ import TopicPhotos from './components/TopicPhotos';
 import TPhoto from './components/TPhoto';
 import Footer from './components/Footer';
 import './css/index.css';
+
+const store = createStore(rootReducer,
+  // eslint-disable-next-line no-underscore-dangle
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
   <React.StrictMode>
