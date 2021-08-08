@@ -1,5 +1,8 @@
-import homeReducer, { updateHomeSearchResults, updateRandomPhotos } from '../redux/slices/homeSlice';
-import topicReducer, { updateTopics, updateSelectedTopicPhotos } from '../redux/slices/topicsSlice';
+import homeReducer from '../redux/reducers/home';
+import topicsReducer from '../redux/reducers/topics';
+import {
+  updateHomeSearchResults, updateRandomPhotos, updateTopics, updateSelectedTopicPhotos,
+} from '../redux/actions';
 
 it('returns the initial home state', () => {
   expect(homeReducer(undefined, {})).toEqual({
@@ -9,7 +12,7 @@ it('returns the initial home state', () => {
 });
 
 it('returns the initial topics state', () => {
-  expect(topicReducer(undefined, {})).toEqual({
+  expect(topicsReducer(undefined, {})).toEqual({
     topics: null,
     selectedTopicPhotos: null,
   });
@@ -28,13 +31,13 @@ it('updates the randomPhotos', () => {
 });
 
 it('updates the Topics', () => {
-  expect(topicReducer({}, updateTopics(['Array of topics']))).toEqual({
+  expect(topicsReducer({}, updateTopics(['Array of topics']))).toEqual({
     topics: ['Array of topics'],
   });
 });
 
 it('updates the selectedTopicPhotos', () => {
-  expect(topicReducer({}, updateSelectedTopicPhotos(["Array of topic's photos"]))).toEqual({
+  expect(topicsReducer({}, updateSelectedTopicPhotos(["Array of topic's photos"]))).toEqual({
     selectedTopicPhotos: ["Array of topic's photos"],
   });
 });
