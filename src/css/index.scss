@@ -1,0 +1,50 @@
+@import './partials/navbar';
+@import './partials/home';
+@import './partials/topics';
+@import './partials/photo';
+@import './partials/footer';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+$main-font: 'Roboto', sans-serif;
+
+$dark-gray: #1a1a1d;
+$gray: #4e4e50;
+$dark-red: #6f2232;
+$pink: #950740;
+$bright-red: #c3073f;
+$white: #dcdde1;
+
+* {
+  border: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: $dark-gray;
+  color: $white;
+  font-family: $main-font;
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+main {
+  flex-grow: 1;
+  margin-top: 8rem;
+}

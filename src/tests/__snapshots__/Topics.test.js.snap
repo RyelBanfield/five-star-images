@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<main
+  className="topics"
+>
+  <h1>
+    Topics
+  </h1>
+</main>
+`;
