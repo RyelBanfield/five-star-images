@@ -6,41 +6,56 @@ $bright-red: #c3073f;
 $white: #dcdde1;
 
 .home {
-  .header {
-    font-size: 1.5rem;
-    text-align: center;
-  }
+  header {
+    height: 35vh;
+    margin-bottom: 2.5rem;
+    position: relative;
 
-  .search {
-    display: flex;
-    flex-direction: column;
-    margin: 2.5rem 0;
-
-    .search-bar {
-      align-items: center;
-      display: flex;
-      justify-content: center;
-
-      input {
-        background-color: $white;
-        border-radius: 0.25rem;
-        padding: 0.5rem;
-        width: 80%;
-      }
+    .header-photo {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
     }
 
-    .buttons {
+    .search {
+      height: 100%;
       align-items: center;
+      background: rgba(0, 0, 0, 0.5);
       display: flex;
-      height: 5rem;
-      justify-content: space-evenly;
+      flex-direction: column;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      width: 100%;
 
-      .btn {
-        background-color: $white;
-        border-radius: 0.25rem;
-        color: $gray;
-        height: 1.75rem;
-        width: 8rem;
+      .search-bar {
+        width: 100%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        input {
+          background-color: $white;
+          border-radius: 0.25rem;
+          padding: 0.5rem;
+          width: 80%;
+        }
+      }
+
+      .buttons {
+        width: 100%;
+        align-items: center;
+        display: flex;
+        height: 5rem;
+        justify-content: space-evenly;
+
+        .btn {
+          background-color: $white;
+          border-radius: 0.25rem;
+          color: $gray;
+          height: 1.75rem;
+          width: 8rem;
+        }
       }
     }
   }
@@ -50,7 +65,7 @@ $white: #dcdde1;
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
     gap: 1rem;
+    justify-content: space-evenly;
   }
 }

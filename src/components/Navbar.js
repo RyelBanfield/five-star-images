@@ -20,6 +20,7 @@ const Navbar = () => {
 
   return (
     <nav>
+      <h1>Five Star Images</h1>
 
       <div className="menu-icon">
         <button type="button" onClick={handleClick}>

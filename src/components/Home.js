@@ -1,18 +1,22 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { FaStar } from 'react-icons/fa';
-import { fetchPhotosBySearch, fetchRandomPhotos } from '../API';
-import { updateHomeSearchResults, updateRandomPhotos } from '../redux/actions';
+import { fetchRandomPhoto, fetchRandomPhotos, fetchPhotosBySearch } from '../API';
+import { updateRandomPhotos, updateHomeSearchResults } from '../redux/actions';
 
 const App = () => {
+  const [randomPhoto, setRandomPhoto] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const searchResults = useSelector((state) => state.home.searchResults);
   const randomPhotos = useSelector((state) => state.home.randomPhotos);
+  const searchResults = useSelector((state) => state.home.searchResults);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    fetchRandomPhoto().then((photo) => {
+      setRandomPhoto(photo);
+    });
+
     fetchRandomPhotos().then((photos) => {
       dispatch(updateRandomPhotos(photos));
     });
@@ -31,22 +35,20 @@ const App = () => {
 
   return (
     <main className="home">
-      <h1 className="header">
-        Five
-        {' '}
-        <FaStar />
-        {' '}
-        Images
-      </h1>
-      <div className="search">
-        <div className="search-bar">
-          <input type="text" value={searchTerm} placeholder="Search new photos" onChange={(event) => setSearchTerm(event.target.value)} />
-        </div>
-        <div className="buttons">
-          <button type="button" className="search-button btn" onClick={() => handleSearch()}>Search</button>
-          <button type="button" className="clear-button btn" onClick={() => clearSearch()}>Clear Search</button>
-        </div>
-      </div>
+      {randomPhoto && (
+        <header>
+          <img className="header-photo" src={randomPhoto.urls.regular} alt="Random" />
+          <div className="search">
+            <div className="search-bar">
+              <input type="text" value={searchTerm} placeholder="Search new photos" onChange={(event) => setSearchTerm(event.target.value)} />
+            </div>
+            <div className="buttons">
+              <button type="button" className="search-button btn" onClick={() => handleSearch()}>Search</button>
+              <button type="button" className="clear-button btn" onClick={() => clearSearch()}>Clear Search</button>
+            </div>
+          </div>
+        </header>
+      )}
 
       {searchResults && (
       <div className="search-results">
