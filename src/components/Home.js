@@ -1,3 +1,4 @@
+import { FaSearch, FaTimes } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -39,13 +40,9 @@ const App = () => {
         <header>
           <img className="header-photo" src={randomPhoto.urls.regular} alt="Random" />
           <div className="search">
-            <div className="search-bar">
-              <input type="text" value={searchTerm} placeholder="Search new photos" onChange={(event) => setSearchTerm(event.target.value)} />
-            </div>
-            <div className="buttons">
-              <button type="button" className="search-button btn" onClick={() => handleSearch()}>Search</button>
-              <button type="button" className="clear-button btn" onClick={() => clearSearch()}>Clear Search</button>
-            </div>
+            <input type="text" value={searchTerm} placeholder="Search new photos" onChange={(event) => setSearchTerm(event.target.value)} />
+            <FaSearch className="search-button btn" onClick={() => handleSearch()} />
+            <FaTimes className="clear-button btn" onClick={() => clearSearch()} />
           </div>
         </header>
       )}
