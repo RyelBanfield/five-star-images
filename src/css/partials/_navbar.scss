@@ -11,6 +11,11 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
+
+  h1 {
+    display: none;
+  }
 
   .menu-icon {
     align-items: center;
@@ -68,6 +73,39 @@ nav {
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+}
+
+@media screen and (min-width: 767px) {
+  nav {
+    display: flex;
+    align-items: center;
+
+    h1 {
+      display: block;
+      font-size: 1.25rem;
+      margin: 0 1rem;
+    }
+
+    .menu-icon {
+      display: none;
+    }
+
+    .nav-links {
+      display: flex;
+      flex: 1;
+
+      .nav-item {
+        list-style: none;
+
+        .nav-link {
+          font-size: 1.1rem;
+          margin: 0 1rem;
+          text-decoration: none;
+          color: $white;
+        }
+      }
     }
   }
 }

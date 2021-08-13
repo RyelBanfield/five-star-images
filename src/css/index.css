@@ -5,6 +5,11 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
+}
+
+nav h1 {
+  display: none;
 }
 
 nav .menu-icon {
@@ -102,12 +107,61 @@ nav .slide-in {
   }
 }
 
-.home .header {
-  font-size: 1.5rem;
-  text-align: center;
+@media screen and (min-width: 767px) {
+  nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  nav h1 {
+    display: block;
+    font-size: 1.25rem;
+    margin: 0 1rem;
+  }
+  nav .menu-icon {
+    display: none;
+  }
+  nav .nav-links {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  nav .nav-links .nav-item {
+    list-style: none;
+  }
+  nav .nav-links .nav-item .nav-link {
+    font-size: 1.1rem;
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #dcdde1;
+  }
 }
 
-.home .search {
+.home header {
+  height: 35vh;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.home header .header-photo {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+
+.home header .search {
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(0, 0, 0, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -115,10 +169,16 @@ nav .slide-in {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 2.5rem 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
-.home .search .search-bar {
+.home header .search .search-bar {
+  width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -130,14 +190,15 @@ nav .slide-in {
           justify-content: center;
 }
 
-.home .search .search-bar input {
+.home header .search .search-bar input {
   background-color: #dcdde1;
   border-radius: 0.25rem;
   padding: 0.5rem;
   width: 80%;
 }
 
-.home .search .buttons {
+.home header .search .buttons {
+  width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -150,7 +211,7 @@ nav .slide-in {
           justify-content: space-evenly;
 }
 
-.home .search .buttons .btn {
+.home header .search .buttons .btn {
   background-color: #dcdde1;
   border-radius: 0.25rem;
   color: #4e4e50;
@@ -168,10 +229,10 @@ nav .slide-in {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  gap: 1rem;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  gap: 1rem;
 }
 
 .topics h1 {
@@ -324,6 +385,6 @@ main {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  margin-top: 8rem;
+  margin-top: 5rem;
 }
 /*# sourceMappingURL=index.css.map */
