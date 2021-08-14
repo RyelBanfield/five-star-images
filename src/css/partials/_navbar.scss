@@ -12,9 +12,14 @@ nav {
   top: 0;
   width: 100%;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   h1 {
-    display: none;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    font-weight: bold;
   }
 
   .menu-icon {
@@ -83,7 +88,6 @@ nav {
     display: flex;
 
     h1 {
-      display: block;
       font-size: 1.25rem;
       margin: 0 1rem;
     }
