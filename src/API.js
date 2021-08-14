@@ -9,7 +9,7 @@ export const fetchRandomPhoto = async () => {
 };
 
 export const fetchPhotosBySearch = async (searchTerm) => {
-  const response = await fetch(`${baseUrl}/search/photos/?${clientID}&query=${searchTerm}&per_page=30`);
+  const response = await fetch(`${baseUrl}/search/photos/?${clientID}&query=${searchTerm}&per_page=30&orientation=squarish`);
   const searchPhotosData = await response.json();
   return searchPhotosData.results;
 };

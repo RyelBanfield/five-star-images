@@ -216,11 +216,8 @@ nav .slide-in {
   margin: 0 2rem;
 }
 
-.home .random-photo {
-  max-width: 100%;
-}
-
-.home .random-photo a img {
+.home .random-photo a img,
+.home .search-result a img {
   width: 100%;
 }
 

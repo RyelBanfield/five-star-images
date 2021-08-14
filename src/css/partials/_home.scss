@@ -56,9 +56,8 @@ $white: #dcdde1;
     margin: 0 2rem;
   }
 
-  .random-photo {
-    max-width: 100%;
-
+  .random-photo,
+  .search-result {
     a {
       img {
         width: 100%;
