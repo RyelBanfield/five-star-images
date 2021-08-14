@@ -8,9 +8,10 @@ const Photo = () => {
   const photo = photos.find((photo) => photo.id === id) || results.find((photo) => photo.id === id);
 
   return (
-    <main className="h-photo">
+    <main className="photo-container">
       {photo && (
       <div className="photo">
+        <img src={photo.urls.small} alt={photo.alt_description} />
         {photo.description && (
           <>
             <p className="photo-description-h">
@@ -21,12 +22,6 @@ const Photo = () => {
             </p>
           </>
         )}
-        <p className="photographer">
-          Photographer:
-          {' '}
-          {photo.user.name}
-        </p>
-        <img src={photo.urls.small} alt={photo.alt_description} />
         <p className="photo-info">
           {photo.likes && (
             <>
@@ -34,6 +29,7 @@ const Photo = () => {
               {' '}
               {photo.likes}
               {' '}
+              <br />
             </>
           )}
           {photo.downloads && (
@@ -42,6 +38,7 @@ const Photo = () => {
               {' '}
               {photo.downloads}
               {' '}
+              <br />
             </>
           )}
           {photo.views && (
@@ -51,6 +48,12 @@ const Photo = () => {
               {photo.views}
             </>
           )}
+          <br />
+          <>
+            Photographer:
+            {' '}
+            {photo.user.name}
+          </>
         </p>
       </div>
       )}

@@ -1,26 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 nav {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   height: 5rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 nav h1 {
   font-size: 1.5rem;
-  margin-left: 1rem;
   font-weight: bold;
+  margin-left: 1rem;
 }
 
 nav .menu-icon {
@@ -35,6 +35,9 @@ nav .menu-icon {
       -ms-flex-pack: end;
           justify-content: flex-end;
   margin-right: 1.25rem;
+  position: absolute;
+  z-index: 2;
+  right: 0;
 }
 
 nav .menu-icon button {
@@ -70,19 +73,22 @@ nav .mobile-links-active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 20vh;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: auto;
   position: relative;
+  width: 100%;
 }
 
 nav .mobile-links-active .nav-item {
   list-style: none;
+  margin-bottom: 2rem;
 }
 
 nav .mobile-links-active .nav-item .nav-link {
+  font-size: 1.75rem;
   color: #dcdde1;
   text-decoration: none;
 }
@@ -90,6 +96,10 @@ nav .mobile-links-active .nav-item .nav-link {
 nav .slide-in {
   -webkit-animation: slide-in-keyframes 0.5s;
           animation: slide-in-keyframes 0.5s;
+}
+
+nav .hidden {
+  display: none;
 }
 
 @-webkit-keyframes slide-in-keyframes {
@@ -276,7 +286,19 @@ nav .slide-in {
   margin: 1rem;
 }
 
-.photo {
+.photo-container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.photo-container .photo {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -289,30 +311,33 @@ nav .slide-in {
           flex-direction: column;
   margin: 0 auto;
   text-align: center;
-  width: 80%;
 }
 
-.photo .photo-description-h {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+.photo-container .photo img {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 720px;
+  padding: 0.5rem 1.5rem 1.5rem;
 }
 
-.photo .photo-description {
+.photo-container .photo .photo-description-h {
   font-size: 1.25rem;
-  margin-bottom: 1.5rem;
+  font-weight: 700;
 }
 
-.photo .photographer {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
+.photo-container .photo .photo-description {
+  max-width: 720px;
+  font-size: 1.05rem;
+  margin: 0 2rem 1rem;
 }
 
-.photo img {
-  margin-bottom: 1rem;
-}
-
-.photo .photo-info {
+.photo-container .photo .photo-info {
+  margin-top: 1rem;
   font-size: 1.2rem;
+  font-weight: 700;
+  padding-left: 1.5rem;
+  text-align: left;
+  width: 100%;
 }
 
 footer {
@@ -322,10 +347,11 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 6vh;
+  height: 7vh;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-top: 2rem;
 }
 
 * {

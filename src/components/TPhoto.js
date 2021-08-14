@@ -7,9 +7,10 @@ const TPhoto = () => {
   const photo = selectedTopicPhotos.find((photo) => photo.id === id);
 
   return (
-    <main className="t-photo">
+    <main className="photo-container">
       {photo && (
       <div className="photo">
+        <img src={photo.urls.small} alt={photo.alt_description} />
         {photo.description && (
           <>
             <p className="photo-description-h">
@@ -20,16 +21,38 @@ const TPhoto = () => {
             </p>
           </>
         )}
-        <p className="photographer">
-          Photographer:
-          {' '}
-          {photo.user.name}
-        </p>
-        <img src={photo.urls.small} alt={photo.alt_description} />
         <p className="photo-info">
-          Likes:
-          {' '}
-          {photo.likes}
+          {photo.likes && (
+            <>
+              Likes:
+              {' '}
+              {photo.likes}
+              {' '}
+              <br />
+            </>
+          )}
+          {photo.downloads && (
+            <>
+              Downloads:
+              {' '}
+              {photo.downloads}
+              {' '}
+              <br />
+            </>
+          )}
+          {photo.views && (
+            <>
+              Views:
+              {' '}
+              {photo.views}
+            </>
+          )}
+          <br />
+          <>
+            Photographer:
+            {' '}
+            {photo.user.name}
+          </>
         </p>
       </div>
       )}

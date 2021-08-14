@@ -27,7 +27,7 @@ export const fetchListOfTopics = async () => {
 };
 
 export const fetchPhotosByTopic = async (topic) => {
-  const response = await fetch(`${baseUrl}/topics/${topic}/photos/?${clientID}&per_page=30`);
+  const response = await fetch(`${baseUrl}/topics/${topic}/photos/?${clientID}&per_page=30&orientation=squarish`);
   const photosData = await response.json();
   return photosData;
 };
