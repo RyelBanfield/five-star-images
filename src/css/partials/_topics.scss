@@ -6,27 +6,33 @@ $bright-red: #c3073f;
 $white: #dcdde1;
 
 .topics {
+  margin-top: 7rem;
+
   h1 {
     font-size: 1.5rem;
+    margin-bottom: 1.5rem;
     text-align: center;
   }
 
   .topic-divs {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
 
     .topic-div {
-      margin: 2rem;
+      margin-bottom: 1.5rem;
 
       h2 {
+        font-size: 1.2rem;
         margin-bottom: 1rem;
         text-align: center;
       }
 
       a {
         img {
-          height: 25vh;
+          width: 400px;
+          height: 310px;
+          object-fit: contain;
         }
       }
     }
@@ -34,6 +40,8 @@ $white: #dcdde1;
 }
 
 .topic {
+  margin-top: 7rem;
+
   h1 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
@@ -51,7 +59,13 @@ $white: #dcdde1;
     justify-content: space-evenly;
 
     .topic-photo {
-      margin: 1rem;
+      margin: 1rem 0;
+
+      a {
+        img {
+          width: 100%;
+        }
+      }
     }
   }
 }

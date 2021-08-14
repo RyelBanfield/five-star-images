@@ -3,7 +3,7 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: black;
+  background-color: #000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -36,8 +36,8 @@ nav .menu-icon {
           justify-content: flex-end;
   margin-right: 1.25rem;
   position: absolute;
-  z-index: 2;
   right: 0;
+  z-index: 2;
 }
 
 nav .menu-icon button {
@@ -88,8 +88,8 @@ nav .mobile-links-active .nav-item {
 }
 
 nav .mobile-links-active .nav-item .nav-link {
-  font-size: 1.75rem;
   color: #dcdde1;
+  font-size: 1.75rem;
   text-decoration: none;
 }
 
@@ -231,8 +231,13 @@ nav .hidden {
   width: 100%;
 }
 
+.topics {
+  margin-top: 7rem;
+}
+
 .topics h1 {
   font-size: 1.5rem;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
@@ -242,22 +247,29 @@ nav .hidden {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .topics .topic-divs .topic-div {
-  margin: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .topics .topic-divs .topic-div h2 {
+  font-size: 1.2rem;
   margin-bottom: 1rem;
   text-align: center;
 }
 
 .topics .topic-divs .topic-div a img {
-  height: 25vh;
+  width: 400px;
+  height: 310px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.topic {
+  margin-top: 7rem;
 }
 
 .topic h1 {
@@ -283,7 +295,11 @@ nav .hidden {
 }
 
 .topic .topic-photos .topic-photo {
-  margin: 1rem;
+  margin: 1rem 0;
+}
+
+.topic .topic-photos .topic-photo a img {
+  width: 100%;
 }
 
 .photo-container {

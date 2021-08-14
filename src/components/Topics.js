@@ -31,7 +31,7 @@ function Topics() {
           <div key={topic.id} className="topic-div">
             <h2>{topic.title}</h2>
             <Link to={`/topic/${topic.slug}/photos`} onClick={() => handleClick(topic)}>
-              <img src={topic.cover_photo.urls.small} alt={topics.alt_description} />
+              <img src={topic.cover_photo.urls.regular} alt={topics.alt_description} />
             </Link>
           </div>
         ))}
